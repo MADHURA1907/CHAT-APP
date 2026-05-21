@@ -16,23 +16,32 @@ const ChatContainer = () => {
     subscribeToMessages,
     unsubscribeFromMessages,
   } = useChatStore();
+
   const { authUser } = useAuthStore();
+
   const messageEndRef = useRef(null);
 
+  // Load messages + subscribe to realtime updates
   useEffect(() => {
+    if (!selectedUser?._id) return;
+
     getMessages(selectedUser._id);
 
     subscribeToMessages();
 
     return () => unsubscribeFromMessages();
-  }, [selectedUser._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
+  }, [selectedUser?._id]);
 
+  // Auto scroll to latest message
   useEffect(() => {
     if (messageEndRef.current && messages) {
-      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+      messageEndRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
     }
   }, [messages]);
 
+  // Loading state
   if (isMessagesLoading) {
     return (
       <div className="flex-1 flex flex-col overflow-auto">
@@ -44,34 +53,45 @@ const ChatContainer = () => {
   }
 
   return (
-    <div className="flex-1 flex flex-col overflow-auto">
+    <div className="flex-1 flex flex-col overflow-auto bg-base-100">
       <ChatHeader />
 
+      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
+
         {messages.map((message) => (
           <div
             key={message._id}
-            className={`chat ${message.senderId === authUser._id ? "chat-end" : "chat-start"}`}
-            ref={messageEndRef}
+            className={`chat ${
+              message.senderId?.toString() === authUser._id?.toString()
+                ? "chat-end"
+                : "chat-start"
+            }`}
           >
-            <div className=" chat-image avatar">
-              <div className="size-10 rounded-full border">
+            {/* Avatar */}
+            <div className="chat-image avatar">
+              <div className="size-10 rounded-full border border-base-300">
                 <img
                   src={
-                    message.senderId === authUser._id
+                    message.senderId?.toString() === authUser._id?.toString()
                       ? authUser.profilePic || "/avatar.png"
                       : selectedUser.profilePic || "/avatar.png"
                   }
-                  alt="profile pic"
+                  alt="profile"
                 />
               </div>
             </div>
+
+            {/* Time */}
             <div className="chat-header mb-1">
               <time className="text-xs opacity-50 ml-1">
                 {formatMessageTime(message.createdAt)}
               </time>
             </div>
+
+            {/* Message Bubble */}
             <div className="chat-bubble flex flex-col">
+
               {message.image && (
                 <img
                   src={message.image}
@@ -79,14 +99,22 @@ const ChatContainer = () => {
                   className="sm:max-w-[200px] rounded-md mb-2"
                 />
               )}
-              {message.text && <p>{message.text}</p>}
+
+              {message.text && (
+                <p>{message.text}</p>
+              )}
             </div>
           </div>
         ))}
+
+        {/* Auto Scroll Ref */}
+        <div ref={messageEndRef}></div>
       </div>
 
+      {/* Input */}
       <MessageInput />
     </div>
   );
 };
+
 export default ChatContainer;
