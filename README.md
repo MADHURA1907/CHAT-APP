@@ -76,9 +76,6 @@ The platform supports secure authentication, realtime one-to-one messaging, onli
 ## Theme Customization
 ![Themes](images/themes.png)
 
-## Online User Status
-![Online Status](images/online_status.png)
-
 ## Mobile Responsive Design
 ![Mobile View](images/mobile_view.png)
 
