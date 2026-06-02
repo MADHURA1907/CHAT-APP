@@ -1,13 +1,5 @@
 # Chatty — Realtime Chat Application
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4ea94b?style=for-the-badge&logo=mongodb&logoColor=white)
-![Socket.IO](https://img.shields.io/badge/Socket.IO-black?style=for-the-badge&logo=socketdotio&badgeColor=010101)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
-
 Chatty is a modern full-stack realtime chat application built with the MERN stack and Socket.IO, designed to provide a seamless and interactive messaging experience.
 
 The platform supports secure authentication, realtime one-to-one messaging, online/offline presence tracking, image sharing with Cloudinary integration, customizable UI themes, and responsive modern design — showcasing scalable full-stack development and realtime communication architecture.
@@ -322,31 +314,3 @@ for realtime chat testing.
 - AI Chat Features
 
 ---
-
-# Author
-
-## Madhura Barve
-
-Full Stack & AI/ML Developer passionate about building scalable realtime applications and modern web experiences.
-
-### Connect With Me
-
-[LinkedIn](https://www.linkedin.com/in/madhura-barve-216629308/) •
-[GitHub](https://github.com/MADHURA1907) •
-[Email](mailto:barvemadhura19@gmail.com)
-
----
-
-# Support
-
-If you like this project:
-
-- Star the repository
-- Fork the project
-- Contribute improvements
-
----
-
-# License
-
-This project is licensed under the ISC License.
