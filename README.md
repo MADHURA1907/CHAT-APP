@@ -314,3 +314,7 @@ for realtime chat testing.
 - AI Chat Features
 
 ---
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request with improvements, bug fixes, or new features.
