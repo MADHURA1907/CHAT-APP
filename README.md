@@ -103,6 +103,39 @@ The platform supports secure authentication, realtime one-to-one messaging, onli
 
 ---
 
+# Application Architecture
+
+Chatty follows a full-stack client-server architecture:
+
+```text
+        ┌─────────────────────┐
+        │      React.js       │
+        │     Frontend        │
+        └──────────┬──────────┘
+                   │
+            HTTP / REST API
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │    Express.js       │
+        │      Backend        │
+        └──────┬────────┬─────┘
+               │        │
+               │        └──────────────┐
+               ▼                       ▼
+        ┌─────────────┐        ┌──────────────┐
+        │   MongoDB   │        │  Cloudinary  │
+        │   Database  │        │ Image Storage│
+        └─────────────┘        └──────────────┘
+
+
+
+        React.js  ◄──── Socket.IO ────► Express.js
+                    Realtime
+                 Communication
+```
+---
+
 # Project Structure
 
 ```bash
